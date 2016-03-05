@@ -211,7 +211,7 @@ void present() { tb_present(); }
 void setCursor(int cx, int cy) { tb_set_cursor(cx, cy); }
 
 void putCell(int x, int y, Cell* cell) { tb_put_cell(x, y, cell); }
-void changeCell(int x, int y, uint ch, Color fg, Color bg) { tb_change_cell(x, y, ch, fg, bg); }
+void changeCell(int x, int y, uint ch, ushort fg, ushort bg) { tb_change_cell(x, y, ch, fg, bg); }
 
 void blit(int x, int y, int w, int h, Cell* cells) { tb_blit(x, y, w, h, cells); }
 
