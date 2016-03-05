@@ -6,4 +6,4 @@ homepage "https://github.com/zyedidia/termbox-d"
 
 targetType "sourceLibrary"
 sourceFiles "libtermbox.a"
-preGenerateCommands "$PACKAGE_DIR/build-termbox.sh"
+preGenerateCommands "sh $PACKAGE_DIR/build-termbox.sh"
