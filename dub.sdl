@@ -1,0 +1,9 @@
+name "termbox"
+description "A port of the TUI library TermBox"
+authors "Zachary Yedidia"
+license "MIT"
+homepage "https://github.com/zyedidia/termbox-d"
+
+targetType "sourceLibrary"
+sourceFiles "libtermbox.a"
+preGenerateCommands "$PACKAGE_DIR/build-termbox.sh"
