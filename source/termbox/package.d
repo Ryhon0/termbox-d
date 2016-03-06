@@ -16,9 +16,9 @@ struct Cell {
 };
 
 enum EventType {
-    key    = 1,
-    resize = 2,
-    mouse  = 3
+    key    = cast(ubyte) 1,
+    resize = cast(ubyte) 2,
+    mouse  = cast(ubyte) 3
 }
 
 /* An event, single interaction from the user. The 'mod' and 'ch' fields are
