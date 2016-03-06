@@ -4,38 +4,28 @@ import std.random;
 void main() {
     init();
 
-    Color[] colors = [
-        Color.default_,
-        Color.red,
-        Color.blue,
-        Color.yellow,
-        Color.green
-    ];
-
     string hello = "Hello world in termbox!";
     string help = "Move the cursor with the arrow keys and quit with escape";
 
     Event e;
 
-    int cx, cy;
     int x, y;
+    y = height() / 2;
+    x = width() / 2 - cast(int) hello.length / 2;
+    foreach (c; hello) {
+        setCell(x++, y, c, Color.red, Color.default_);
+    }
+
+    x = width() / 2 - cast(int) help.length / 2;
+    foreach (c; help) {
+        setCell(x++, y + 1, c, Color.blue, Color.default_);
+    }
+
+    int cx, cy;
     do {
-        clear();
-
-        y = height() / 2;
-        x = width() / 2 - cast(int) hello.length / 2;
-        foreach (c; hello) {
-            changeCell(x++, y, c, colors[uniform(0, colors.length)], Color.default_);
-        }
-
-        x = width() / 2 - cast(int) help.length / 2;
-        foreach (c; help) {
-            changeCell(x++, y + 1, c, colors[uniform(0, colors.length)], Color.default_);
-        }
-
         setCursor(cx, cy);
-        present();
 
+        flush();
         pollEvent(&e);
 
         if (e.key == Key.arrowUp) {

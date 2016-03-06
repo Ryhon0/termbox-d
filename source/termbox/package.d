@@ -75,8 +75,6 @@ private extern (C) void tb_set_clear_attributes(ushort fg, ushort bg);
 /* Synchronizes the internal back buffer with the terminal. */
 private extern (C) void tb_present();
 
-enum hideCursor = -1;
-
 /* Sets the position of the cursor. Upper-left character is (0, 0). If you pass
  * TB_HIDE_CURSOR as both coordinates, then the cursor will be hidden. Cursor
  * is hidden by default.
@@ -196,7 +194,6 @@ private extern (C) int tb_utf8_char_to_unicode(uint* out_, const char* c);
 private extern (C) int tb_utf8_unicode_to_char(char* out_, uint c);
 
 
-
 int init() { return tb_init(); }
 void shutdown() { tb_shutdown(); }
 
@@ -206,19 +203,19 @@ int width() { return tb_width(); }
 void clear() { tb_clear(); }
 void setClearAttributes(ushort fg, ushort bg) { tb_set_clear_attributes(fg, bg); }
 
-void present() { tb_present(); }
+void flush() { tb_present(); }
 
 void setCursor(int cx, int cy) { tb_set_cursor(cx, cy); }
 
 void putCell(int x, int y, Cell* cell) { tb_put_cell(x, y, cell); }
-void changeCell(int x, int y, uint ch, ushort fg, ushort bg) { tb_change_cell(x, y, ch, fg, bg); }
+void setCell(int x, int y, uint ch, ushort fg, ushort bg) { tb_change_cell(x, y, ch, fg, bg); }
 
 void blit(int x, int y, int w, int h, Cell* cells) { tb_blit(x, y, w, h, cells); }
 
 Cell* cellBuffer() { return tb_cell_buffer(); }
 
-int selectInputMode(InputMode mode) { return tb_select_input_mode(mode); }
-int selectOutputMode(OutputMode mode) { return tb_select_output_mode(mode); }
+int setInputMode(InputMode mode) { return tb_select_input_mode(mode); }
+int setOutputMode(OutputMode mode) { return tb_select_output_mode(mode); }
 
 int peekEvent(Event* event, int timeout) { return tb_peek_event(event, timeout); }
 int pollEvent(Event* event) { return tb_poll_event(event); }
@@ -226,3 +223,5 @@ int pollEvent(Event* event) { return tb_poll_event(event); }
 int charLength(char c) { return tb_utf8_char_length(c); }
 int charToUnicode(uint* out_, const char* c) { return tb_utf8_char_to_unicode(out_, c); }
 int unicodeToChar(char* out_, uint c) { return tb_utf8_unicode_to_char(out_, c); }
+
+void hideCursor() { setCursor(-1, -1); }

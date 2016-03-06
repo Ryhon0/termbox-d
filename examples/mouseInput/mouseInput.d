@@ -6,7 +6,7 @@ import std.random;
 void main() {
     init();
 
-    selectInputMode(InputMode.esc | InputMode.mouse);
+    setInputMode(InputMode.esc | InputMode.mouse);
 
     Color[] colors = [
         Color.default_,
@@ -22,12 +22,12 @@ void main() {
 
     Event e;
     do {
-        present();
+        flush();
 
         pollEvent(&e);
 
         if (e.key == Key.mouseLeft) {
-            changeCell(e.x, e.y, '█', colors[uniform(0, colors.length)], Color.default_);
+            setCell(e.x, e.y, '█', colors[uniform(0, colors.length)], Color.default_);
         }
     } while (e.key != Key.esc);
 
