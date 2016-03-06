@@ -9,3 +9,6 @@ libtermbox.a
 
 examples/helloWorld/helloworld
 examples/helloWorld/dub.selections.json
+
+examples/mouseInput/mouseinput
+examples/mouseInput/dub.selections.json
