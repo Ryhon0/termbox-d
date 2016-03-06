@@ -192,7 +192,7 @@ private extern (C) int tb_poll_event(Event* event);
 /* Utility utf8 functions. */
 enum TB_EOF = -1;
 private extern (C) int tb_utf8_char_length(char c);
-private extern (C) int tb_utf8_char_to_unicode(uint* out_, char* c);
+private extern (C) int tb_utf8_char_to_unicode(uint* out_, const char* c);
 private extern (C) int tb_utf8_unicode_to_char(char* out_, uint c);
 
 
@@ -224,5 +224,5 @@ int peekEvent(Event* event, int timeout) { return tb_peek_event(event, timeout);
 int pollEvent(Event* event) { return tb_poll_event(event); }
 
 int charLength(char c) { return tb_utf8_char_length(c); }
-int charToUnicode(uint* out_, char* c) { return tb_utf8_char_to_unicode(out_, c); }
+int charToUnicode(uint* out_, const char* c) { return tb_utf8_char_to_unicode(out_, c); }
 int unicodeToChar(char* out_, uint c) { return tb_utf8_unicode_to_char(out_, c); }
