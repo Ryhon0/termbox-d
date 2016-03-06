@@ -31,26 +31,30 @@ or
 
 See the `examples/` directory for some examples of how to use Termbox.
 
-The library consists of 12 functions:
+The library consists of the following functions:
 
-```
-init() // Initialization
+```d
+init() // Start termbox
 shutdown() // Shutdown
 
 width() // Width of the terminal screen
 height() // Height of the terminal screen
 
-clear() // Clear buffer
-present() // Sync internal buffer with terminal
+clear() // Clear the screen
+setClearAttributes(ushort fg, ushort bg) // Attributes for clearing the screen
+flush() // Sync internal buffer with terminal
 
-// Drawing functions
-putCell()
-changeCell()
-blit()
+putCell(int x, int y, Cell* cell) // Draw cell at position x y
+setCell(int x, int y, uint ch, ushort fg, ushort bg) // Put the character ch at position x y with color fg and bg
 
-selectInputMode() // Change input mode
-peekEvent() // Peek a keyboard event
-pollEvent() // Wait for a keyboard event
+setInputMode(InputMode mode) // Change the input mode
+setOutputMode(OutputMode mode) // Change the output mode
+
+peekEvent(Event* e) // Peek an event
+pollEvent(Event* e) // Wait for an event
+
+setCursor(int x, int y) // Put the cursor at x, y
+hideCursor() // Hide the cursor
 ```
 
 For full detail, `source/termbox/package.d`.
