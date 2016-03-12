@@ -16,9 +16,9 @@ struct Cell {
 };
 
 enum EventType {
-    key    = cast(ubyte) 1,
-    resize = cast(ubyte) 2,
-    mouse  = cast(ubyte) 3
+    key    = 1,
+    resize = 2,
+    mouse  = 3
 }
 
 /* An event, single interaction from the user. The 'mod' and 'ch' fields are
@@ -124,8 +124,8 @@ enum InputMode {
 enum OutputMode {
     current   = 0,
     normal    = 1,
-    out256    = 2,
-    out216    = 3,
+    color256  = 2,
+    color216  = 3,
     grayscale = 4
 }
 

@@ -13,12 +13,12 @@ void main() {
     y = height() / 2;
     x = width() / 2 - cast(int) hello.length / 2;
     foreach (c; hello) {
-        setCell(x++, y, c, Color.red, Color.default_);
+        setCell(x++, y, c, Color.red, Color.basic);
     }
 
     x = width() / 2 - cast(int) help.length / 2;
     foreach (c; help) {
-        setCell(x++, y + 1, c, Color.blue, Color.default_);
+        setCell(x++, y + 1, c, Color.blue, Color.basic);
     }
 
     int cx, cy;
@@ -29,13 +29,17 @@ void main() {
         pollEvent(&e);
 
         if (e.key == Key.arrowUp) {
-            cy--;
+            if (cy > 0)
+                cy--;
         } else if (e.key == Key.arrowDown) {
-            cy++;
+            if (cy < height())
+                cy++;
         } else if (e.key == Key.arrowRight) {
-            cx++;
+            if (cx < width())
+                cx++;
         } else if (e.key == Key.arrowLeft) {
-            cx--;
+            if (cx > 0)
+                cx--;
         }
     } while (e.key != Key.esc);
 
