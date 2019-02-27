@@ -1,4 +1,4 @@
-module keyboard;
+module termbox.keyboard;
 
 // Key constants. See also struct Event's key field.
 enum Key : ushort {
