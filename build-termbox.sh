@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $DIR
+DIR=$(dirname "$0")
+cd "$DIR"
 if [ ! -f libtermbox.a ] || [ "$1" == "-f" ]; then
     echo "Building Termbox"
     rm -rf termbox-master
@@ -11,7 +10,7 @@ if [ ! -f libtermbox.a ] || [ "$1" == "-f" ]; then
     cd termbox-master
     ./waf configure
     ./waf install --targets=termbox_static --destdir=.
-    mv build/src/libtermbox.a ..
+    mv usr/local/lib/libtermbox.a ../libtermbox.a
     cd ..
     rm -rf termbox-master
 fi

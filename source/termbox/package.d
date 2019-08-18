@@ -1,7 +1,7 @@
 module termbox;
 
-public import color;
-public import keyboard;
+public import termbox.color;
+public import termbox.keyboard;
 
 /* A cell, single conceptual entity on the terminal screen. The terminal screen
  * is basically a 2d array of cells. It has the following fields:

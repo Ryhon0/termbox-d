@@ -1,4 +1,4 @@
-module color;
+module termbox.color;
 
 /* Colors (see struct Cell's fg and bg fields). */
 enum Color : ushort {
