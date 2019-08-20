@@ -5,5 +5,5 @@ license "MIT"
 homepage "https://github.com/zyedidia/termbox-d"
 
 targetType "sourceLibrary"
-sourceFiles "libtermbox.a"
+lflags "$PACKAGE_DIR/libtermbox.a"
 preGenerateCommands "bash $PACKAGE_DIR/build-termbox.sh"
