@@ -16,14 +16,14 @@ Termbox-d is meant to be used as a dub package. Just install it by putting it in
 `dub.sdl` or `dub.json` file.
 
 ```sdl
-dependency "termbox" version="*"
+dependency "termbox" version="~master"
 ```
 
 or
 
 ```json
 "dependencies": {
-    "termbox": { "version": "*" }
+    "termbox": { "version": "~master" }
 }
 ```
 
