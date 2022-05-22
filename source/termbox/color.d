@@ -21,5 +21,6 @@ enum Color : ushort {
 enum Attribute : ushort {
     bold      = 0x0100,
     underline = 0x0200,
-    reverse   = 0x0400
+    reverse   = 0x0400,
+    bright   = 0x0800,
 }

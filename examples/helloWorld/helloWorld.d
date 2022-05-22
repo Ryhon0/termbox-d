@@ -21,6 +21,11 @@ void main() {
         setCell(x++, y + 1, c, Color.blue, Color.basic);
     }
 
+	for(int i=0; i<8; i++)
+	{
+		setCell(i, 0, '▄', cast(ushort)(i + 1), cast(ushort)((i + 1) | Attribute.bright));
+	}
+
     int cx, cy;
     do {
         setCursor(cx, cy);

@@ -4,7 +4,7 @@ cd "$DIR"
 if [ ! -f libtermbox.a ] || [ "$1" == "-f" ]; then
     echo "Building Termbox"
     rm -rf termbox-master
-    curl -L --progress-bar https://github.com/nsf/termbox/archive/master.tar.gz > termbox.tar.gz
+    curl -L --progress-bar https://github.com/Ryhon0/termbox/archive/master.tar.gz > termbox.tar.gz
     tar -xf termbox.tar.gz
     rm termbox.tar.gz
     cd termbox-master
